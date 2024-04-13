@@ -1,0 +1,175 @@
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/bg.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.calculator{
+    width: 400px;
+    padding: 15px;
+    color: rgb(12, 102, 12);
+    background: url(./img/frog.png), #cdefd1e8;
+    background-repeat: no-repeat;
+    background-position: left 8px bottom 27px;
+    background-size: 80px;
+    border-radius: 40px;
+    box-shadow: 0 0 15px 0 rgba(255, 215, 0, 0.5);
+    position: relative;
+}
+
+.display{
+    font-size: 38px;
+    padding: 40px;
+    text-align: right;
+    overflow-x: auto;
+}
+
+.keyboard{
+    user-select: none;
+}
+
+button{
+    color: inherit;
+    background-color: #b5e8bce8;
+    transition: .3s;
+}
+
+button:hover{
+    box-shadow: 0 0 10px 0 rgba(255, 215, 0, 0.5);
+}
+
+.btn-function{
+    font-size: 32px;
+    width: 80px;
+    padding: 20px 0;
+    border-radius: 45%;
+    background-color: rgb(169, 249, 159);
+}
+
+.btn-digit{
+    font-size: 28px;
+    padding: 8px 30px;
+    border-radius: 49%;
+    transition: .3s;
+}
+
+.btn-digit:hover{
+    background-color: #b2edb2e8;
+}
+
+.functio-btns, .row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.functio-btns{
+    padding-bottom: 20px;
+}
+
+.row{
+    padding-bottom: 10px;
+}
+
+.more{
+    opacity: 0;
+    color: transparent;
+}
+
+.last-row::after{
+    content: '\003C';
+    display: inline-block;
+    position: absolute;
+    bottom: 34px;
+    left: 26px;
+    opacity: .5;
+    font-size: 24px;
+}
+
+.more:hover{
+    opacity: .9;
+    background-color: transparent;
+}
+
+.addKeyboard{
+    width: 200px;
+    position: absolute;
+    top: 30%;
+    left: -240px;
+    display: none;
+}
+
+.addKeyboard::after{
+    content: '* Використовуйте дужки для значень';
+    position: relative;
+    left: 15px;
+    font-size: 12px;
+}
+
+.addRow{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.add-btn{
+    font-size: 30px;
+    width: 90px;
+    padding: 10px 0;
+    border-radius: 20px;
+}
+
+
+
+@media (max-width: 1000px){
+    .last-row{
+        margin-left: 100px;
+    }
+     .more{
+        display: none;
+    }
+    .last-row::after{
+        display: none;
+    }
+    .addKeyboard{
+        opacity: 0;
+    } 
+}
+
+
+@media (max-width: 600px){
+    .calculator{
+        width: 300px;
+        padding: 10px;
+        background-size: 65px;
+        background-position: left 5px bottom 15px;
+    }
+
+    .display{
+        font-size: 36px;
+        padding: 30px
+    }
+
+    .btn-function{
+        font-size: 30px;
+        width: 60px;
+        padding: 10px 0;
+    }
+    
+    .btn-digit{
+        font-size: 24px;
+        padding: 5px 20px;
+    }
+
+    .last-row{
+        margin-left: 73px;
+    }
+
+    button{
+        pointer-events: none;
+    }
+}
