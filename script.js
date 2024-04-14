@@ -11,29 +11,36 @@ function replaceToMath(element) {
     return element;
 }
 
+values.forEach(item => item.addEventListener('click', (e) => {
+
+     if(add !== e.target){
+         if(e.target.id === 'deleteAll'){
+             display.innerText = 0;
+         }
+         else if(e.target.id === 'deleteLast'){
+             display.innerText.length > 1? display.innerText = display.innerText.slice(0,-1) : display.innerText = '0'
+         }
+         else if(e.target.id === 'result'){
+             const expression = replaceToMath(display.innerText);
+             display.innerText = ((eval(expression)) / Math.ceil((eval(expression)))) !== 1? parseFloat(eval(expression).toFixed(5)) : (eval(expression))
+         }
+         else if (e.target.id === 'percent') {
+             const percentValue = parseFloat(display.innerText) / 100;
+             display.innerText = percentValue.toFixed(3);
+         }
+         else{
+             if (display.innerText === '0' && e.target.innerText !== '.') {
+                 display.innerText = ''; 
+             }
+             display.innerText += e.target.innerText; 
+         }
+     }
+
+}));
 
 
-function addNewKeyboard(){
-    if(window.innerWidth > 1000){
-        if(addKeyboard.style.display === 'block'){
-            addKeyboard.style.display = 'none'
-        }
-        else{
-            addKeyboard.style.display = 'block'
-        }
-    }
-}
+values.forEach(item => item.addEventListener('touchend', (e) => {
 
-add.addEventListener('click', addNewKeyboard)
-
-
-buttons.forEach(button => {
-    button.addEventListener('touchstart', handleButtonClick);
-    button.addEventListener('click', handleButtonClick);
-});
-
-function handleButtonClick(e) {
-    
     if(add !== e.target){
         if(e.target.id === 'deleteAll'){
             display.innerText = 0;
@@ -56,5 +63,21 @@ function handleButtonClick(e) {
             display.innerText += e.target.innerText; 
         }
     }
-    
+
+}));
+
+
+
+function addNewKeyboard(){
+    if(window.innerWidth > 1000){
+        if(addKeyboard.style.display === 'block'){
+            addKeyboard.style.display = 'none'
+        }
+        else{
+            addKeyboard.style.display = 'block'
+        }
+    }
 }
+
+add.addEventListener('click', addNewKeyboard)
+
