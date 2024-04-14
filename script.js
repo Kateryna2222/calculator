@@ -11,15 +11,7 @@ function replaceToMath(element) {
     return element;
 }
 
-let clickEvent = (function(){
-    if('ontouchstart' in document.documentElement === true)
-        return 'touchstart';
-    else
-        return 'click';
-})();
-
-
-values.forEach(item => item.addEventListener(clickEvent, (e) => {
+values.forEach(item => item.addEventListener('click', (e) => {
 
      if(add !== e.target){
          if(e.target.id === 'deleteAll'){
@@ -45,6 +37,8 @@ values.forEach(item => item.addEventListener(clickEvent, (e) => {
      }
 
 }));
+
+
 
 
 function addNewKeyboard(){
