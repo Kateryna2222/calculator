@@ -11,8 +11,29 @@ function replaceToMath(element) {
     return element;
 }
 
-values.forEach(item => item.addEventListener('click', (e) => {
 
+
+function addNewKeyboard(){
+    if(window.innerWidth > 1000){
+        if(addKeyboard.style.display === 'block'){
+            addKeyboard.style.display = 'none'
+        }
+        else{
+            addKeyboard.style.display = 'block'
+        }
+    }
+}
+
+add.addEventListener('click', addNewKeyboard)
+
+
+buttons.forEach(button => {
+    button.addEventListener('touchstart', handleButtonClick);
+    button.addEventListener('click', handleButtonClick);
+});
+
+function handleButtonClick(e) {
+    
     if(add !== e.target){
         if(e.target.id === 'deleteAll'){
             display.innerText = 0;
@@ -35,21 +56,5 @@ values.forEach(item => item.addEventListener('click', (e) => {
             display.innerText += e.target.innerText; 
         }
     }
-
-}));
-
-
-function addNewKeyboard(){
-    if(window.innerWidth > 1000){
-        if(addKeyboard.style.display === 'block'){
-            addKeyboard.style.display = 'none'
-        }
-        else{
-            addKeyboard.style.display = 'block'
-        }
-    }
+    
 }
-
-add.addEventListener('click', addNewKeyboard)
-
-
