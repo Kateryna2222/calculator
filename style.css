@@ -47,7 +47,7 @@ button:hover{
     font-size: 32px;
     width: 80px;
     padding: 20px 0;
-    border-radius: 45%;
+    border-radius: 50%;
     background-color: rgb(169, 249, 159);
 }
 
@@ -81,13 +81,13 @@ button:hover{
 }
 
 .last-row::after{
-    content: '\003C';
+    content: 'More';
     display: inline-block;
     position: absolute;
-    bottom: 34px;
-    left: 26px;
+    bottom: 38px;
+    left: 15px;
     opacity: .5;
-    font-size: 24px;
+    font-size: 12px;
 }
 
 .more:hover{
