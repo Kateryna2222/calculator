@@ -169,7 +169,4 @@ button:hover{
         margin-left: 73px;
     }
 
-    button{
-        pointer-events: none;
-    }
 }
