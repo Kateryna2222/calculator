@@ -11,7 +11,15 @@ function replaceToMath(element) {
     return element;
 }
 
-values.forEach(item => item.addEventListener('click', (e) => {
+let clickEvent = (function(){
+    if('ontouchstart' in document.documentElement === true)
+        return 'touchstart';
+    else
+        return 'click';
+})();
+
+
+values.forEach(item => item.addEventListener(clickEvent, (e) => {
 
      if(add !== e.target){
          if(e.target.id === 'deleteAll'){
