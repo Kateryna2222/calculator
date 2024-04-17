@@ -11,8 +11,13 @@ function replaceToMath(element) {
     return element;
 }
 
-values.forEach(item => item.addEventListener('click', (e) => {
+function onlyOneOperation(task){
+    let lestOperation = task.slice(-1)
+    return lestOperation === '+' || lestOperation === '-' || lestOperation === '÷' || lestOperation === '\u00D7' || lestOperation === '.'
+}
 
+
+values.forEach(item => item.addEventListener('click', (e) => {
      if(add !== e.target){
          if(e.target.id === 'deleteAll'){
              display.innerText = 0;
@@ -28,11 +33,18 @@ values.forEach(item => item.addEventListener('click', (e) => {
              const percentValue = parseFloat(display.innerText) / 100;
              display.innerText = percentValue.toFixed(3);
          }
-         else{
-             if (display.innerText === '0' && e.target.innerText !== '.') {
+         else {
+            if (display.innerText === '0' && e.target.innerText !== '.') {
                  display.innerText = ''; 
-             }
-             display.innerText += e.target.innerText; 
+            }
+
+            let disable = ['+', '-', '÷', '\u00D7', '.']
+            if(onlyOneOperation((display.innerText)) && disable.includes(e.target.innerText)){
+                display.innerText += ''
+            }
+            else{
+                display.innerText += e.target.innerText
+            }
          }
      }
 
